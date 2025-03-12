@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FastBite Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="sidebar-brand">
+        <div class="icon">🍔</div>
+        <h2>Fast<span>Bite</span></h2>
+      </div>
+
+      <div class="sidebar-menu">
+        <div class="menu-category">Main</div>
+        <ul>
+          <li>
+            <a href="#" class="active"
+              ><div class="icon">📊</div>
+              Dashboard</a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><div class="icon">🛒</div>
+              Orders</a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><div class="icon">🍽️</div>
+              Menu Items</a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><div class="icon">👥</div>
+              Customers</a
+            >
+          </li>
+        </ul>
+
+        <div class="menu-category">Management</div>
+        <ul>
+          <li>
+            <a href="#"
+              ><div class="icon">📦</div>
+              Inventory</a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><div class="icon">👨‍🍳</div>
+              Staff</a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><div class="icon">💰</div>
+              Finances</a
+            >
+          </li>
+        </ul>
+
+        <div class="menu-category">Settings</div>
+        <ul>
+          <li>
+            <a href="#"
+              ><div class="icon">⚙️</div>
+              Settings</a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><div class="icon">📱</div>
+              App Management</a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><div class="icon">📊</div>
+              Analytics</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Header -->
+      <div class="header">
+        <div class="page-title">
+          <h1>Dashboard</h1>
+          <div class="page-subtitle">
+            Welcome back, John! Here's what's happening today.
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <div class="search-box">
+            <i>🔍</i>
+            <input type="text" placeholder="Search..." />
+          </div>
+
+          <div class="notification-bell">
+            <div class="icon">🔔</div>
+            <div class="notification-dot"></div>
+          </div>
+
+          <div class="user-profile">
+            <div class="avatar">JD</div>
+            <div class="user-info">
+              <div class="name">John Doe</div>
+              <div class="role">Manager</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats Cards -->
+      <div class="stats-cards">
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <div>
+              <div class="stat-card-title">Total Sales</div>
+              <div class="stat-card-value">$12,548</div>
+            </div>
+            <div class="stat-card-icon sales">💰</div>
+          </div>
+          <div class="stat-card-trend trend-up">
+            <span>▲ 12.5%</span> vs last month
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <div>
+              <div class="stat-card-title">Total Orders</div>
+              <div class="stat-card-value">584</div>
+            </div>
+            <div class="stat-card-icon orders">🛒</div>
+          </div>
+          <div class="stat-card-trend trend-up">
+            <span>▲ 8.2%</span> vs last month
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <div>
+              <div class="stat-card-title">New Customers</div>
+              <div class="stat-card-value">129</div>
+            </div>
+            <div class="stat-card-icon customers">👥</div>
+          </div>
+          <div class="stat-card-trend trend-up">
+            <span>▲ 5.7%</span> vs last month
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <div>
+              <div class="stat-card-title">Avg. Order Value</div>
+              <div class="stat-card-value">$21.50</div>
+            </div>
+            <div class="stat-card-icon revenue">📈</div>
+          </div>
+          <div class="stat-card-trend trend-down">
+            <span>▼ 2.1%</span> vs last month
+          </div>
+        </div>
+      </div>
+
+      <!-- Dashboard Grid -->
+      <div class="dashboard-grid">
+        <!-- Sales Chart Section -->
+        <div class="sales-chart">
+          <div class="card-header">
+            <div class="card-title">Sales Overview</div>
+            <div class="time-filter">
+              <button class="filter-btn">Day</button>
+              <button class="filter-btn">Week</button>
+              <button class="filter-btn active">Month</button>
+              <button class="filter-btn">Year</button>
+            </div>
+          </div>
+          <div class="chart-container">
+            <canvas id="salesChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Popular Items Section -->
+        <div class="popular-items">
+          <div class="card-header">
+            <div class="card-title">Popular Items</div>
+          </div>
+
+          <div class="item-card">
+            <img src="./images/burger.jpg" alt="Burger" class="item-image" />
+            <div class="item-details">
+              <div class="item-name">Double Cheeseburger</div>
+              <div class="item-category">Burgers</div>
+              <div class="item-price">$8.99</div>
+            </div>
+            <div class="item-sales">
+              <div class="sales-count">142</div>
+              <div>Orders</div>
+            </div>
+          </div>
+
+          <div class="item-card">
+            <img src="./images/pizza.jpg" alt="Pizza" class="item-image" />
+            <div class="item-details">
+              <div class="item-name">Pepperoni Pizza</div>
+              <div class="item-category">Pizza</div>
+              <div class="item-price">$12.99</div>
+            </div>
+            <div class="item-sales">
+              <div class="sales-count">98</div>
+              <div>Orders</div>
+            </div>
+          </div>
+
+          <div class="item-card">
+            <img src="./images/burger.jpg" alt="Fries" class="item-image" />
+            <div class="item-details">
+              <div class="item-name">Loaded Fries</div>
+              <div class="item-category">Sides</div>
+              <div class="item-price">$5.49</div>
+            </div>
+            <div class="item-sales">
+              <div class="sales-count">76</div>
+              <div>Orders</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Orders Section -->
+        <div class="recent-orders">
+          <div class="card-header">
+            <div class="card-title">Recent Orders</div>
+          </div>
+
+          <table class="orders-table">
+            <thead>
+              <tr>
+                <th>Order ID</th>
+                <th>Customer</th>
+                <th>Items</th>
+                <th>Date</th>
+                <th>Total</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="order-id">#FB2854</td>
+                <td>Emily Johnson</td>
+                <td>Double Cheeseburger, Fries (L), Soda</td>
+                <td>Mar 8, 2025 - 12:42 PM</td>
+                <td>$15.97</td>
+                <td>
+                  <span class="order-status status-completed">Completed</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="order-id">#FB2853</td>
+                <td>Michael Smith</td>
+                <td>Pepperoni Pizza, Buffalo Wings, Garlic Bread</td>
+                <td>Mar 8, 2025 - 12:35 PM</td>
+                <td>$24.98</td>
+                <td>
+                  <span class="order-status status-preparing">Preparing</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="order-id">#FB2852</td>
+                <td>Sarah Williams</td>
+                <td>Caesar Salad, Grilled Chicken Wrap</td>
+                <td>Mar 8, 2025 - 12:28 PM</td>
+                <td>$16.48</td>
+                <td>
+                  <span class="order-status status-completed">Completed</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="order-id">#FB2851</td>
+                <td>David Brown</td>
+                <td>Fish & Chips, Lemonade</td>
+                <td>Mar 8, 2025 - 12:15 PM</td>
+                <td>$14.49</td>
+                <td>
+                  <span class="order-status status-cancelled">Cancelled</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="order-id">#FB2850</td>
+                <td>Jessica Davis</td>
+                <td>Veggie Burger, Sweet Potato Fries, Milkshake</td>
+                <td>Mar 8, 2025 - 12:03 PM</td>
+                <td>$18.47</td>
+                <td>
+                  <span class="order-status status-completed">Completed</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="view-more">
+            <button class="view-more-btn">View All Orders</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
